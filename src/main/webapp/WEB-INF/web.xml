@@ -6,7 +6,7 @@
     <display-name>furniture</display-name>
 	
     <welcome-file-list>
-        <welcome-file>/Welcome.jsp</welcome-file>
+        <welcome-file>/SignUp.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>

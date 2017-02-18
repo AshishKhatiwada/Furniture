@@ -7,6 +7,7 @@ package com.mycompany.furniture.Dbutil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -32,15 +33,18 @@ public class Dbconn {
         return conn;
     }
   public void createtables(){
-           String sql = "CREATE TABLE tbl_user_signup(ID integer PRIMARY KEY,Email varchar(255) NOT NULL,Password varchar(50) NOT NULL)";
-
+           String sql = "CREATE TABLE if not exist tbl_user_signup(ID integer PRIMARY KEY,Email varchar(255) NOT NULL,Password varchar(50) NOT NULL)";
+           String query = "insert into tbl_user_signup(ID,Email,Password) values(1,'ashish.khatiwada3@gmail.com','ashish')";
         Statement ps;
+        PreparedStatement s;
         try {
+           
             ps = getConnection().createStatement();
             ps.executeUpdate(sql);
+            s = getConnection().prepareStatement(query);
+           s.executeUpdate();
         } catch (SQLException ex) {
             
         }
     }
 }
-

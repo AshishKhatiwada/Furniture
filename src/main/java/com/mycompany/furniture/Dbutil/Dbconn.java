@@ -34,13 +34,27 @@ public class Dbconn {
     }
   public void createtables(){
            String sql = "CREATE TABLE if not exist tbl_user_signup(ID integer PRIMARY KEY,Email varchar(255) NOT NULL,Password varchar(50) NOT NULL)";
-           String query = "insert into tbl_user_signup(ID,Email,Password) values(1,'ashish.khatiwada3@gmail.com','ashish')";
+           
         Statement ps;
-        PreparedStatement s;
+
         try {
            
             ps = getConnection().createStatement();
             ps.executeUpdate(sql);
+
+       
+        } catch (SQLException ex) {
+            
+        }
+    }
+   public void inserttables(){
+           
+           String query = "insert into tbl_user_signup(ID,Email,Password) values(1,'ashish.khatiwada3@gmail.com','ashish')";
+       
+        PreparedStatement s;
+        try {
+           
+           
             s = getConnection().prepareStatement(query);
            s.executeUpdate();
         } catch (SQLException ex) {

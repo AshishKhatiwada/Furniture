@@ -23,11 +23,10 @@ public class Dbconn {
     public static Connection getConnection(){
           
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/furniture","root","");
+            
+            String env = System.getenv("JDBC_DATABASE_URL");
+            conn =DriverManager.getConnection(env);
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
         return conn;

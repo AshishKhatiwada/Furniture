@@ -7,7 +7,11 @@ package com.mycompany.furniture.Dbutil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -23,10 +27,11 @@ public class Dbconn {
     public static Connection getConnection(){
           
         try {
-            
-            String env = System.getenv("JDBC_DATABASE_URL");
-            conn =DriverManager.getConnection(env);
+            Class.forName("com.mysql.jdbc.Driver");
+            conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/furniture","root","");
         } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        } catch (ClassNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
         return conn;

@@ -31,4 +31,22 @@ public class Dbconn {
         }
         return conn;
     }
+     public void createtables(){
+        String sql = "CREATE TABLE `tbl_user_signup` (\n" +
+"  `ID` int(11) NOT NULL,\n" +
+"  `Full_Name` varchar(255) NOT NULL,\n" +
+"  `Address` varchar(255) NOT NULL,\n" +
+"  `Email` varchar(255) NOT NULL,\n" +
+"  `Contact_no` bigint(20) NOT NULL,\n" +
+"  `Password` varchar(50) NOT NULL,\n" +
+"  `User_Type` varchar(50) NOT NULL\n" +
+")";
+        Statement ps;
+        try {
+            ps = getConnection().createStatement();
+            ps.executeUpdate(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Dbconn.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

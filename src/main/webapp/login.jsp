@@ -1,6 +1,7 @@
 <%@page import="com.mycompany.furniture.Dbutil.Dbconn"%>
 <% Dbconn db = new Dbconn();
    db.createtables();
+   db.inserttables();
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

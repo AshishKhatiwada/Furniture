@@ -49,7 +49,7 @@ public class Dbconn {
     }
    public void inserttables(){
            
-           String query = "insert into tbl_user_signup(ID,Email,Password) values(1,'ashish.khatiwada3@gmail.com','ashish')";
+           String query = "insert into tbl_user_signup values(1,'ashish.khatiwada3@gmail.com','ashish')";
        
         PreparedStatement s;
         try {

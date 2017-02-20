@@ -33,7 +33,7 @@ public class Dbconn {
         return conn;
     }
   public void createtables(){
-           String sql = "CREATE TABLE if not exist tbl_user_signup(ID integer PRIMARY KEY,Email varchar(255) NOT NULL,Password varchar(50) NOT NULL)";
+           String sql = "CREATE TABLE if not exist tbl_user_signup(ID integer serial PRIMARY KEY,Email varchar(255) NOT NULL,Password varchar(50) NOT NULL)";
            
         Statement ps;
 
@@ -49,7 +49,7 @@ public class Dbconn {
     }
    public void inserttables(){
            
-           String query = "insert into tbl_user_signup values(1,'ashish.khatiwada3@gmail.com','ashish')";
+           String query = "insert into tbl_user_signup(Email,Password) values('ashish.khatiwada3@gmail.com','ashish')";
        
         PreparedStatement s;
         try {
